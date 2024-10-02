@@ -8,12 +8,17 @@ const Provider = ({ children } : { children: React.ReactNode }) => {
 		throw new Error('Function not implemented.');
 	}
 
+	// function getClerkUser() {
+	// 	throw new Error('Function not implemented.');
+	// }
+
 	return (
 			<LiveblocksProvider 
 			// publicApiKey={"pk_dev_ddDiS…R0vbWu"}
 				authEndpoint={"/api/liveblocks-auth"}
 				resolveUsers={async({userIds}) => {
-					// const users = await getClerkUser();
+					const users = await getClerkUser({ userIds});
+					return users;	
 				}}
 			>
 					<ClientSideSuspense fallback={<Loader />}>
