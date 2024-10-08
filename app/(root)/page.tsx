@@ -7,6 +7,7 @@ import { redirect } from "next/navigation";
 import Image from "next/image";
 import { getDocuments } from "@/lib/actions/room.actions";
 import Link from "next/link";
+import { dateConverter } from "@/lib/utils";
 
 
 export default async function Home() {
@@ -48,7 +49,8 @@ export default async function Home() {
 										/>
 									</div>
 									<div className="space-y-1">
-										<p className="line-clamp-1"></p>
+										<p className="line-clamp-1">{metadata.title}</p>
+										<p className="text-sm font-light text-blue-100">Created about {dateConverter(createdAt)}</p>
 									</div>
 								</Link>
 
